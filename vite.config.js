@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  base: "/library_locator/",
   server: {
-    base: "/library_locator/",
     proxy: {
       "/api": {
         target: "http://localhost:5000",
