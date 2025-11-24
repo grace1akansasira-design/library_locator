@@ -1,5 +1,6 @@
-import Navbar from "../components/Navbar";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
+
 
 function Reports() {
   const [books] = useState([
@@ -15,48 +16,51 @@ function Reports() {
   return (
     <div>
       <Navbar />
-      <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-blue-700 text-center uppercase">SYSTEM REPORTS</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <div className="bg-green-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL BOOKS</p>
-            <p className="text-2xl font-bold">{totalBooks}</p>
+      <div className="reports-container">
+        <h1 className="reports-title">System Reports</h1>
+
+        <div className="reports-stats">
+          <div className="stats-card stats-green">
+            <p className="stats-label">Total Books</p>
+            <p className="stats-value">{totalBooks}</p>
           </div>
-          <div className="bg-yellow-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL AUTHORS</p>
-            <p className="text-2xl font-bold">{totalAuthors}</p>
+          <div className="stats-card stats-yellow">
+            <p className="stats-label">Total Authors</p>
+            <p className="stats-value">{totalAuthors}</p>
           </div>
-          <div className="bg-blue-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL LOCATIONS</p>
-            <p className="text-2xl font-bold">{totalLocations}</p>
+          <div className="stats-card stats-blue">
+            <p className="stats-label">Total Locations</p>
+            <p className="stats-value">{totalLocations}</p>
           </div>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4 uppercase">RECENTLY ADDED BOOKS</h2>
+        <div className="recent-books">
+          <h2>Recently Added Books</h2>
 
           {books.length === 0 ? (
-            <p className="text-gray-600">NO BOOKS ADDED YET.</p>
+            <p className="no-books">No books added yet.</p>
           ) : (
-            <table className="w-full border border-gray-300">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="border px-4 py-2 text-left uppercase">TITLE</th>
-                  <th className="border px-4 py-2 text-left uppercase">AUTHOR</th>
-                  <th className="border px-4 py-2 text-left uppercase">BOOKSHELF</th>
-                </tr>
-              </thead>
-              <tbody>
-                {books.map(book => (
-                  <tr key={book.id} className="border">
-                    <td className="border px-4 py-2">{book.title}</td>
-                    <td className="border px-4 py-2">{book.author}</td>
-                    <td className="border px-4 py-2 text-blue-600">{book.location}</td>
+            <div className="books-table-wrapper">
+              <table className="books-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Bookshelf</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {books.map(book => (
+                    <tr key={book.id}>
+                      <td className="book-title">{book.title}</td>
+                      <td>{book.author}</td>
+                      <td className="book-location">{book.location}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>

@@ -14,44 +14,33 @@ function Dashboard() {
   return (
     <div>
       <Navbar />
-      <div className="p-6">
-        <h1 className="text-4xl font-bold mb-6 text-blue-700 uppercase text-center">
-          ADMIN DASHBOARD
-        </h1>
+      <div className="dashboard-container">
+        <h1 className="dashboard-title">Admin Dashboard</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <div className="bg-green-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL BOOKS</p>
-            <p className="text-2xl font-bold">{totalBooks}</p>
+        <div className="stats-cards">
+          <div className="card card-green">
+            <p className="card-label">Total Books</p>
+            <p className="card-value">{totalBooks}</p>
           </div>
-          <div className="bg-yellow-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL AUTHORS</p>
-            <p className="text-2xl font-bold">{totalAuthors}</p>
+          <div className="card card-yellow">
+            <p className="card-label">Total Authors</p>
+            <p className="card-value">{totalAuthors}</p>
           </div>
-          <div className="bg-blue-100 p-4 rounded shadow text-center">
-            <p className="text-lg font-semibold uppercase">TOTAL LOCATIONS</p>
-            <p className="text-2xl font-bold">{totalLocations}</p>
+          <div className="card card-blue">
+            <p className="card-label">Total Locations</p>
+            <p className="card-value">{totalLocations}</p>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4">
-          <button
-            className="bg-green-600 text-white px-4 py-2 rounded uppercase font-semibold"
-            onClick={() => window.location.href = "/add-book"}
-          >
-            ADD BOOK
+        <div className="dashboard-buttons">
+          <button className="btn btn-green" onClick={() => window.location.href = "/add-book"}>
+            Add Book
           </button>
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded uppercase font-semibold"
-            onClick={() => window.location.href = "/search"}
-          >
-            SEARCH BOOKS
+          <button className="btn btn-blue" onClick={() => window.location.href = "/search"}>
+            Search Books
           </button>
-          <button
-            className="bg-gray-600 text-white px-4 py-2 rounded uppercase font-semibold"
-            onClick={() => window.location.href = "/reports"}
-          >
-            VIEW REPORTS
+          <button className="btn btn-gray" onClick={() => window.location.href = "/reports"}>
+            View Reports
           </button>
         </div>
       </div>

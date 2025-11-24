@@ -16,32 +16,28 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="w-80 p-6 shadow-lg bg-white rounded">
-        <h1 className="text-3xl font-bold mb-6 text-center uppercase">
-          WELCOME TO E-LIBRARY BOOK LOCATOR SYSTEM.
-        </h1>
+    <div className="login-container">
+      <div className="login-card">
+        <h1 className="login-title">E-Library Book Locator</h1>
         <input
           type="text"
-          className="border w-full p-2 mb-3 rounded"
+          className="login-input"
           placeholder="Username"
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
         <input
           type="password"
-          className="border w-full p-2 mb-3 rounded"
+          className="login-input"
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        {error && <p className="text-red-600 mb-2">{error}</p>}
-        <button
-          className="bg-blue-600 text-white w-full p-2 rounded"
-          onClick={handleLogin}
-        >
+        {error && <p className="login-error">{error}</p>}
+        <button className="login-button" onClick={handleLogin}>
           Login
         </button>
+        <p className="login-footer">&copy; 2025 E-Library. All rights reserved.</p>
       </div>
     </div>
   );
