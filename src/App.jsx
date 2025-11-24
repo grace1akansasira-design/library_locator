@@ -13,7 +13,7 @@ import './app.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter  basename="/library_locator">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
